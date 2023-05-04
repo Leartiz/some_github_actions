@@ -36,7 +36,6 @@ jobs:
           arch: 'win64_msvc2019_64'
           dir: '${{ github.workspace }}/example/'
           install-deps: 'true'
-          modules: 'qttest'
           cache: 'false'
           cache-key-prefix: 'install-qt-action'
           setup-python: 'true'
