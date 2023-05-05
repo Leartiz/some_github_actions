@@ -48,6 +48,7 @@ jobs:
           
       - name: Check inv.
         run: |
-          qmake --version
-          make --version
+          dir
+          cd /home/runner/work/some_github_actions/some_github_actions/example//Qt
+          dir
           
