@@ -34,7 +34,7 @@ jobs:
       - name: Check inv.
         run: |
           dir
-          cd /home/runner/work/some_github_actions/some_github_actions/example//Qt
+          cd D:\a\some_github_actions\some_github_actions\example\Qt
           dir
 
       - name: Clone from bitbucket
