@@ -34,20 +34,20 @@ jobs:
       - name: Look into VS
         run: |
           dir
-          cd "${{ github.workspace }}\Program Files\"
+          cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise"
           dir
 
-      # - name: Clone plantuml_to_structs_converter
-      #   run: |
-      #     cd ${{ github.workspace }}
-      #     git clone https://Leartiz@bitbucket.org/Leartiz/plantuml_to_structs_converter.git
+      - name: Clone plantuml_to_structs_converter
+        run: |
+          cd ${{ github.workspace }}
+          git clone https://Leartiz@bitbucket.org/Leartiz/plantuml_to_structs_converter.git
 
-      # - name: Build tests
-      #   run: |
-      #     cd ${{ github.workspace }}\plantuml_to_structs_converter\converter\test
-      #     ${{ github.workspace }}\Qt\6.5.0\msvc2019_64\bin\qmake.exe
-      #     ${{ github.workspace }}\Qt\Tools\QtCreator\bin\jom\jom.exe -f Makefile
+      - name: Build tests
+        run: |
+          cd ${{ github.workspace }}\plantuml_to_structs_converter\converter\test
+          ${{ github.workspace }}\Qt\6.5.0\msvc2019_64\bin\qmake.exe
+          ${{ github.workspace }}\Qt\Tools\QtCreator\bin\jom\jom.exe -f Makefile
 
-      # - name: Run tests
-      #   run: |
-      #     ${{ github.workspace }}\plantuml_to_structs_converter\converter\test\test.exe
+      - name: Run tests
+        run: |
+          ${{ github.workspace }}\plantuml_to_structs_converter\converter\test\test.exe
