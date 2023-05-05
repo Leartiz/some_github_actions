@@ -7,38 +7,34 @@ jobs:
   build:
     runs-on: windows-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
           
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: '6.2.4'
-          host: 'windows'
-          target: 'desktop'
+          version: '6.5.0'
           arch: 'win64_msvc2019_64'
-          dir: '${{ github.workspace }}/example/'
-          install-deps: 'true'
-          cache: 'false'
-          cache-key-prefix: 'install-qt-action'
-          setup-python: 'true'
+          dir: '${{ github.workspace }}/'
+          cache: 'true'
           tools: 'tools_ifw tools_qtcreator,qt.tools.qtcreator'
-          set-env: 'true'
-          tools-only: 'false'
-          aqtversion: '==2.1.*'
-          py7zrversion: '==0.19.*'
-          extra: '--external 7z'
           
-      - name: Check inv.
+      - name: Look into qt
         run: |
-          dir
-          cd D:\a\some_github_actions\some_github_actions\example\Qt
+          cd ${{ github.workspace }}\Qt
           dir
 
-      - name: Clone from bitbucket
+      - name: Clone plantuml_to_structs_converter
         run: |
+          cd ${{ github.workspace }}
           git clone https://Leartiz@bitbucket.org/Leartiz/plantuml_to_structs_converter.git
-          cd plantuml_to_structs_converter/converter/test
-          /home/runner/work/some_github_actions/some_github_actions/example//Qt/qmake
+
+      - name: Build tests
+        run: |
+          cd ${{ github.workspace }}\plantuml_to_structs_converter\converter\test
+          ${{ github.workspace }}\Qt\6.5.0\msvc2019_64\bin\qmake.exe
+          ${{ github.workspace }}\Qt\Tools\QtCreator\bin\jom\jom.exe -f Makefile
+
+      - name: Run tests
+        run: |
+          ${{ github.workspace }}\plantuml_to_structs_converter\converter\test\test.exe
