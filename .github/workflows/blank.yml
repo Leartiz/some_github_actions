@@ -33,6 +33,7 @@ jobs:
 
       - name: Look into VS
         run: |
+          dir
           cd "${{ github.workspace }}\Program Files\"
           dir
 
