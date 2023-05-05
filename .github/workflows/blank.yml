@@ -45,3 +45,9 @@ jobs:
           aqtversion: '==2.1.*'
           py7zrversion: '==0.19.*'
           extra: '--external 7z'
+          
+      - name: Check inv.
+        run: |
+          qmake --version
+          make --version
+          
