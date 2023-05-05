@@ -38,6 +38,10 @@ jobs:
           dir
           cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC"
           dir
+          cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC"
+          dir
+          cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\bin\Hostx64\x64"
+          dir
 
       - name: Clone plantuml_to_structs_converter
         run: |
