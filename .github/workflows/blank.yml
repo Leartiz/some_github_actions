@@ -26,7 +26,7 @@ jobs:
 
       - name: Look into VS
         run: |
-          cd ${{ github.workspace }}\Program Files\Microsoft Visual Studio
+          cd "${{ github.workspace }}\Program Files\Microsoft Visual Studio"
           dir
 
       # - name: Clone plantuml_to_structs_converter
